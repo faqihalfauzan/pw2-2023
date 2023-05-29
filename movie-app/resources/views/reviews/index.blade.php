@@ -43,12 +43,13 @@
                 <tbody>
                     @foreach ($reviews as $review)
                     <tr>
-                        <td>{{ $review['no'] }}</td>
-                        <td>{{ $review['film'] }}</td>
-                        <td>{{ $review['user'] }}</td>
-                        <td>{{ $review['rating'] }}</td>
-                        <td>{{ $review['reviews'] }}</td>
-                        <td>{{ $review['tanggal'] }}</td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $reviews->film }}</td>
+                        <td>{{ $reviews->user }}</td>
+                        <td>{{ $reviews->rating }}</td>
+                        <td>{{ $reviews->tahun }}</td>
+                        <td>{{ $reviews->reviews }}</td>
+                        <td>{{ $reviews->tanggal }}</td>
                         <td>
                             <a href="" class="btn btn-sm btn-warning"> Edit</a>
                             <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>

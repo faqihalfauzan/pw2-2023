@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_reviews', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->string('film');
+            $table->string('user');
+            $table->foreignId('rating');
+            $table->string('reviews');
+            $table->integer('tanggal');
+            $table->float('rating');
             $table->timestamps();
         });
     }
@@ -22,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_reviews');
+        Schema::dropIfExists('reviews');
     }
 };

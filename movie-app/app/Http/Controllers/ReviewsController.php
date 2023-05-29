@@ -12,10 +12,9 @@ class ReviewsController extends Controller
      */
     public function index()
     {
-       $review = new reviews;
-       $reviews = $review->getAllReviews();
-       
-       return view('reviews/index', ['reviews'=> $reviews]);
+        $Review = Reviews::all();
+
+        return view('reviews/index', compact('reviews'));
     }
     /**
      * Show the form for creating a new resource.

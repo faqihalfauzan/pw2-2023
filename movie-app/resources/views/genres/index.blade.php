@@ -37,9 +37,9 @@
                 <tbody>
                     @foreach ($genres as $genres)
                     <tr>
-                        <td>{{ $genres['no'] }}</td>
-                        <td>{{ $genres['nama genre'] }}</td>
-                        <td>{{ $genres['deskripsi'] }}</td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $genres->nama}}</td>
+                        <td>{{ $genres->deskripsi }}</td>
                         <td>
                             <a href="" class="btn btn-sm btn-warning"> Edit</a>
                             <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
