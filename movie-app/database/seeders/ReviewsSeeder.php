@@ -14,7 +14,7 @@ class ReviewsSeeder extends Seeder
     public function run(): void
     {
         Reviews::create([
-            'no' => '1',
+
             'film' => 'Parasite',
             'user' => 'Song Kang Ho',
             'rating' => '9.5',
@@ -23,7 +23,6 @@ class ReviewsSeeder extends Seeder
             
         ]);
         Reviews::create([
-            'no' => '2',
             'film' => 'Avangers: Endgame',
             'user' => 'Joe Russo',
             'rating' => '8.6',
@@ -31,7 +30,6 @@ class ReviewsSeeder extends Seeder
             'tanggal' =>'2019',
         ]);
         Reviews::create([
-            'no' => '3',
             'film' => 'The Godfather',
             'user' => 'Richard.s',
             'rating' => '9.3',
@@ -39,7 +37,6 @@ class ReviewsSeeder extends Seeder
             'tanggal' => '1972',
         ]);
         Reviews::create([
-            'no' => '4',
             'film' => 'The Dark Knighr',
             'user' => 'Crishtoper Nolan',
             'rating' => '9.8',

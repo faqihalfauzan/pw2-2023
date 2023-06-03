@@ -9,8 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 class Reviews extends Model
 {
     use HasFactory;
-    public function movie()
+    protected $fillable = ['film_id', 'user_id', 'rating', 'reviews', 'tanggal'];
+
+    public function Reviews()
     {
-     return $this->belongsTo(movie::class, 'movie_id');
+        return $this->belongsTo(Reviews::class, 'review_id');
     }
+   
 }

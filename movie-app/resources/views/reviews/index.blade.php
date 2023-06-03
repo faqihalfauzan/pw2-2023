@@ -7,10 +7,15 @@
             <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
             <li class="breadcrumb-item active">Reviews</li>
         </ol>
-        <a href="#">
+        <a href="/reviews/create">
             <button class="btn btn-success" type="submit">Create Data</button>
         </a>
     </div>
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
@@ -21,10 +26,10 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Film</th>
-                        <th>User</th>
+                        <th>Film_id</th>
+                        <th>User_id</th>
                         <th>Rating</th>
-                        <th>Reviews</th>
+                        <th>Review</th>
                         <th>Tanggal</th>
                         <th>Action</th>
                     </tr>
@@ -32,33 +37,35 @@
                 <tfoot>
                     <tr>
                         <th>No</th>
-                        <th>Film</th>
-                        <th>User</th>
+                        <th>Film_id</th>
+                        <th>User_id</th>
                         <th>Rating</th>
-                        <th>Reviews</th>
+                        <th>Review</th>
                         <th>Tanggal</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
                 <tbody>
                     @foreach ($reviews as $review)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $reviews->film }}</td>
-                        <td>{{ $reviews->user }}</td>
-                        <td>{{ $reviews->rating }}</td>
-                        <td>{{ $reviews->tahun }}</td>
-                        <td>{{ $reviews->reviews }}</td>
-                        <td>{{ $reviews->tanggal }}</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{{ $loop->iteration}}</td>
+                            <td>{{ $review->film_id }}</td>
+                            <td>{{ $review->user_id }}</td>
+                            <td>{{ $review->rating }}</td>
+                            <td>{{ $review->reviews }}</td>
+                            <td>{{ $review->tanggal }}</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-warning"> Edit</a>
+                            <form action="/reviews/{{ $review->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger"  onclick="return confirm('Apakah Anda yakin ingin menghapus?')" >Delete</button>
+                            </form>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-  
 @endsection

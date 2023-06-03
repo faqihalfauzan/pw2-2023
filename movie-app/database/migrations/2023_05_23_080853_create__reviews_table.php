@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('film');
             $table->string('user');
-            $table->foreignId('rating');
-            $table->string('reviews');
-            $table->integer('tanggal');
             $table->float('rating');
+            $table->text('reviews');
+            $table->integer('tanggal');
             $table->timestamps();
+
         });
     }
 
