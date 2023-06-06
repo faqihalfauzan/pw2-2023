@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Genres;
 use Illuminate\Http\Request;
 
@@ -54,7 +55,9 @@ class GenresController extends Controller
      */
     public function edit(Genres $genres)
     {
-        //
+        
+
+        return view('genres.edit', compact('genres'));
     }
 
     /**
@@ -62,7 +65,14 @@ class GenresController extends Controller
      */
     public function update(Request $request, Genres $genres)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+        ]);
+    
+        $genres->update($validatedData);
+    
+        return redirect('/genres')->with('success', 'genres updated successfully!');
     }
 
     /**
