@@ -20,7 +20,7 @@
                     <a class="navbar-brand col-lg-3 me-0" href="#"><h4>Movie App</h4></a>
                     <ul class="navbar-nav col-lg-6 justify-content-lg-center">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/movies">Movies</a>
@@ -29,7 +29,7 @@
                             <a class="nav-link" href="/genres">Genres</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Reviews</a>
+                            <a class="nav-link" href="reviews">Reviews</a>
                         </li>
                     </ul>
                 <div class="d-lg-flex col-lg-3 justify-content-lg-end">
