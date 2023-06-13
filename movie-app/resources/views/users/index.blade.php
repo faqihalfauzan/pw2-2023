@@ -7,10 +7,15 @@
             <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
             <li class="breadcrumb-item active">Users</li>
         </ol>
-        <a href="#">
+        <a href="/users/create">
             <button class="btn btn-success" type="submit">Create Data</button>
         </a>
     </div>
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
@@ -20,22 +25,20 @@
             <table id="datatablesSimple">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Nama </th>
-                        <th>User Name</th>
-                        <th>Password</th>
+                        <th>Id</th>
+                        <th>name </th>
                         <th>Email</th>
+                        <th>password</th>
                         <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>No</th>
-                        <th>Nama </th>
-                        <th>User Name</th>
-                        <th>Password</th>
+                        <th>Id</th>
+                        <th>name </th>
                         <th>Email</th>
+                        <th>password</th>
                         <th>Role</th>
                         <th>Action</th>
                     </tr>
@@ -43,16 +46,18 @@
                 <tbody>
                     @foreach ($users as $user)
                         <tr>
-                            <td>{{ $users['no'] }}</td>
-                            <td>{{ $users['nama'] }}</td>
-                            <td>{{ $users['user name'] }}</td>
-                            <td>{{ $users['password'] }}</td>
-                            <td>{{ $users['email'] }}</td>
-                            <td>{{ $users['role'] }}</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->password }}</td>
+                            <td>{{ $user->role }}</td>
                             <td>
-                    
-                                <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                                <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
+                                <a href="/users/{{ $user->id }}/edit" class="btn btn-sm btn-warning"> Edit</a>
+                                <form action="/users/{{ $user->id }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger"  onclick="return confirm('Apakah Anda yakin ingin menghapus?')" >Delete</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

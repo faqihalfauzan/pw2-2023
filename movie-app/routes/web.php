@@ -5,7 +5,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\GenresController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 
 
@@ -41,7 +41,13 @@ Route::get('reviews/{reviews}/edit', [ReviewsController::class, 'edit']);
 Route::put('/reviews/{reviews}', [ReviewsController::class, 'update']); 
 
 
-Route::get('/users', [UsersController::class, 'index']);
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/create', [UserController::class, 'create']);
+Route::post('users', [UserController::class, 'store']);
+Route::delete('/users/{users}', [UserController::class, 'destroy']);
+Route::get('users/{users}/edit', [UserController::class, 'edit']);
+Route::put('/users/{users}', [UserController::class, 'update']); 
+
 Route::get('/register', [AuthController::class, 'showRegistrationForm']);
 Route::post('/register', [AuthController::class, 'register']);
 
