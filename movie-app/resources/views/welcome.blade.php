@@ -34,9 +34,6 @@
                     </ul>
                 <div class="d-lg-flex col-lg-3 justify-content-lg-end">
                     <a href="/login" class="btn btn-warning">Login</a>
-                <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-                    <a href="/signin" class="btn btn-warning">Sign in</a>
-                    </div>
                 </div>
                 </div>
             </div>

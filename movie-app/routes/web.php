@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\GenresController;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\HomeController;
 
@@ -37,8 +38,17 @@ Route::get('/reviews/create', [ReviewsController::class, 'create']);
 Route::post('reviews', [ReviewsController::class, 'store']);
 Route::delete('/reviews/{reviews}', [ReviewsController::class, 'destroy']);
 Route::get('reviews/{reviews}/edit', [ReviewsController::class, 'edit']);
-Route::put('/reviews/{reviews}', [ReviewsController::class, 'update']);
+Route::put('/reviews/{reviews}', [ReviewsController::class, 'update']); 
 
 
 Route::get('/users', [UsersController::class, 'index']);
+Route::get('/register', [AuthController::class, 'showRegistrationForm']);
+Route::post('/register', [AuthController::class, 'register']);
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::group(['middleware' => 'auth'], function () {
+Route::resource('/movies', MovieController::class);});
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 
