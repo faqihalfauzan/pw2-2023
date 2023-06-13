@@ -34,6 +34,9 @@
                     </ul>
                 <div class="d-lg-flex col-lg-3 justify-content-lg-end">
                     <a href="/login" class="btn btn-warning">Login</a>
+                <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                    <a href="/signin" class="btn btn-warning">Sign in</a>
+                    </div>
                 </div>
                 </div>
             </div>
@@ -62,7 +65,7 @@
                     @foreach ($movies as $movie)
                     <div class="col">
                         <div class="card shadow-sm">
-                            <img src="/{{ $movie->poster }}">
+                            <img src="/assets/img/{{ $movie->poster }}">
                             <div class="card-body">
                                 <h4 class="card-title"><a href="#">{{ $movie->judul }}</a></h4>
                                 <p class="card-text">Genre: {{ $movie->genre->nama }}</p>

@@ -52,7 +52,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $movie->judul }}</td>
-                        <td>{{ $movie->poster }}</td>
+                        <td><img src="/assets/img/{{$movie->poster}}"width="100" alt=""></td>
                         <td>{{ $movie->genre->nama }}</td>
                         <td>{{ $movie->negara }}</td>
                         <td>{{ $movie->tahun }}</td>

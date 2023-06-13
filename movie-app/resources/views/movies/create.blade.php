@@ -23,7 +23,7 @@
             Movies Data
         </div>
         <div class="card-body">
-            <form method="POST" action="/movies">
+            <form method="POST" action="/movies" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label for="judul">Judul:</label>
@@ -31,7 +31,7 @@
                 </div>
                 <div>
                     <label for="poster">Poster:</label>
-                    <input type="text" id="poster" name="poster">
+                    <input type="file" id="poster" name="poster">
                 </div>
                 <div>
                     <label for="genre">Genre:</label>
